@@ -3,7 +3,7 @@
 
 from setuptools import Extension, setup
 
-__version__ = '0.14.0'
+__version__ = '0.14.1'
 
 bchlib_src = ['src/bchlib.c',
               'src/bch.c']

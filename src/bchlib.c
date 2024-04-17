@@ -141,7 +141,7 @@ BCH_encode(BCHObject *self, PyObject *args, PyObject *kwds)
 	} else {
 		memset(result_ecc->ob_bytes, 0, ecc_bytes);
 	}
-	Py_SIZE(result_ecc) = ecc_bytes;
+	Py_SET_SIZE(result_ecc, ecc_bytes);
 	result_ecc->ob_alloc = ecc_bytes;
 #if PY_MAJOR_VERSION >= 3
 	result_ecc->ob_start = result_ecc->ob_bytes;
@@ -223,7 +223,7 @@ BCH_decode(BCHObject *self, PyObject *args, PyObject *kwds)
 	} else {
 		memcpy(result_data->ob_bytes, data.buf, data.len);
 	}
-	Py_SIZE(result_data) = data.len;
+	Py_SET_SIZE(result_data, data.len);
 	result_data->ob_alloc = data.len;
 #if PY_MAJOR_VERSION >= 3
 	result_data->ob_start = result_data->ob_bytes;
@@ -231,7 +231,7 @@ BCH_decode(BCHObject *self, PyObject *args, PyObject *kwds)
 	result_data->ob_exports = 0;
 
 	memcpy(result_ecc->ob_bytes, ecc.buf, ecc.len);
-	Py_SIZE(result_ecc) = ecc.len;
+	Py_SET_SIZE(result_ecc, ecc.len);
 	result_ecc->ob_alloc = ecc.len;
 #if PY_MAJOR_VERSION >= 3
 	result_ecc->ob_start = result_ecc->ob_bytes;
@@ -418,7 +418,7 @@ BCH_decode_syndromes(BCHObject *self, PyObject *args, PyObject *kwds)
 	} else {
 		memcpy(result_data->ob_bytes, data.buf, data.len);
 	}
-	Py_SIZE(result_data) = data.len;
+	Py_SET_SIZE(result_data, data.len);
 	result_data->ob_alloc = data.len;
 #if PY_MAJOR_VERSION >= 3
 	result_data->ob_start = result_data->ob_bytes;
